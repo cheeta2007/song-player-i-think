@@ -1,0 +1,100 @@
+#amk 2
+
+#spc
+{
+	#title "Temple B"
+	#game "Spelunky"
+	#author "Eirik Suhrke"
+	#comment "Ported by Dippy"
+}
+
+#path "templeb"
+
+#samples
+{
+	#optimized
+	"kick.brr"						
+	"snare.brr"					
+	"tamborine.brr"				
+	"synth bass.brr"				
+	"kdl3_glockenspiel.brr"		
+	"tom.brr"						
+	"909 kick.brr" 				
+	"808 snare.brr"				
+	"acoustic hat close.brr"		
+	"high strings.brr"	
+	"acoustic hat open.brr"
+	"high choir.brr"
+}
+
+#instruments
+{
+	"kick.brr"						$FF $E0 $B8 $05 $00 	;@30
+	"snare.brr"					$FF $F4 $B8 $05 $2F 	;@31
+	"tamborine.brr"				$8F $72 $B8 $06 $20 	;@32
+	"synth bass.brr"				$BF $8C $B8 $08 $05 	;@33
+	"kdl3_glockenspiel.brr"		$FF $F2 $B8 $03 $00 	;@34
+	"tom.brr"						$8F $B4 $B8 $04 $00 	;@35
+	"909 kick.brr" 				$FF $F0 $B8 $02 $00 	;@36
+	"808 snare.brr"				$FF $E0 $B8 $07 $A8 	;@37
+	"acoustic hat close.brr"		$FF $E0 $B8 $06 $00 	;@38
+	"high strings.brr"			$F3 $E0 $B8 $04 $04 	;@39
+	"acoustic hat open.brr"		$BF $12 $B8 $06 $80	;@40
+	"high choir.brr"				$88 $A7 $00 $03 $09	;@41
+}
+
+w215 t57 $F4 $02
+
+$EF $FE $25 $25
+$F1 $04 $40 $01
+
+"K=@30 c"
+"S=@31 c"
+"EC=$F4 $03"
+
+#0 / v175 ;Percussion
+(2)[K4. K8 EC v160 S2 EC]7 K4. K8 EC v160 S32S16. @35 e8 c+8 < a8 EC >
+(2)7 K4. K8 EC v160 S32S16. r4. EC
+(5)[@36 v178 e4. e2^8 d4. e8 @37 v185 c2]2 (6)[@36 v178 e4. f2^8 d4. d8 @37 v185 c2] (5)
+(5)2 (6) (5)
+
+#1 / @33 o3 v200 ;Bass
+(3)[e4r8e2r8d4r8e4r8e8r8$F4$01d8e8$F4$01r8e2r8d4r8e4r8e4
+$F4$01e8f8$F4$01r8f2r8d4r8d4r8d4$F4$01d8e8$F4$01r8e2r8d4r8e2r8]
+(3)2
+e4r8e2r8d4r8e4r8e8r8$F4$01d8e8$F4$01r8e2r8d4r8e4r8e4
+$F4$01e8f8$F4$01r8f2r8d4r8d4r8d4$F4$01d8e8$F4$01r8e2r8d4r8 e2 $DD$18$78 << e8^8
+
+#2 / @34 o3 v152 l8 ;Lead 
+(4)[efg+ab2r2.fg+efg+ab2r2.ab>]
+c4.c16<b16a2r2.g+abag+fe2r1
+(4) > [d4r]3<b4rf4a4ede1..>
+[ [[e<bg>d<af4.r1]]2> e<bg>d<af4.r2..efabg+fe1^4.]2
+
+#3 / @34 o3 v95 y08 l8 r4 $EE$0A ;Lead Echo 
+efg+ab2r2.fg+efg+ab2r2.ab>
+c4.c16<b16a2r2.g+abag+fe2r1
+(4) > [d4r]3<b4rf4a4ede1..>
+[e<bg>d<af4.r1]2> e<bg>d<af4.r2..efabg+fe1^4.>
+[e<bg>d<af4.r1]2> e<bg>d<af4.r2..efabg+fe1^8
+
+#4 / @34 o3 v110 y09 l8 ;Lead Accompany
+[r1]8
+r1..b>dfe1.^8def2.a4.f2^8efb1r1
+[$EE $0A efe1.efefe1..[[r1]]2e16f16b1...]2
+
+#5 / @39 o4 v80
+e1^1^1^1f1^1e1^1 e1^1^1^1f1^1e1^2r2
+@34 o4 l8 v82 q7f y08 r
+$EE $10 efe1.efefe1..[r1]2e16f16b1...
+$EE $10 efe1.efefe1..[r1]2e16f16b1..
+
+#6 / @38 o4 v155 l8 y09 ;Hat
+(1)[q7f c q79 c]15 @40 q7f c4 @38
+(1)14 r2 (1)15 @40 q7f c4 @38 (1)14 r2 v125
+(1)64
+
+#7 / @32 o4 v160 y08
+[q7f c4 q78 c8 c8]31 r2
+@41 v100 q7f y10 e1^1^1^1 [r1]4
+$F4 $01 e1 e8f8e4.d+4. $F4 $01 [r1]6
